@@ -1,0 +1,12 @@
+.header {
+    position: relative;
+    border-bottom: 5px solid #ececec;
+}
+
+.header__container{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.nav{
+    display: flex;
+}

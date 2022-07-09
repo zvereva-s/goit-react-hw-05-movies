@@ -1,0 +1,26 @@
+.wrapper { 
+    padding: 0 50px;
+}
+.button { 
+    padding: 10px;
+    margin-bottom: 20px;
+    min-width: 50px;
+
+    border: 1px solid transparent;
+    border-radius: 10px;
+
+    text-transform: uppercase;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+.button:hover, .button:focus{
+    background-color: black;
+    color: white;
+}
+.p {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 72px;
+}

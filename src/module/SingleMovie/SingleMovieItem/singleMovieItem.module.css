@@ -1,0 +1,17 @@
+td{
+    padding: 10px 10px;
+    min-width: 100px;
+}
+.info_box {
+    display: flex;
+    padding: 10px 10px;
+    border-bottom: 5px solid #ececec;
+}
+.img{
+    width: 200px;
+    height: 100%;
+
+    border-radius: 10px;
+
+    margin-right: 20px;
+}

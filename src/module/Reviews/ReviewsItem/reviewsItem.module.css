@@ -1,0 +1,22 @@
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 50px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.item{
+    max-width: 80%;
+    padding: 20px;
+    border-bottom: 1px solid lightgray;
+}
+.author {
+    text-transform: uppercase;
+}
+.content{
+    font-size: 13px;
+}
