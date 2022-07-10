@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 
 import MoviesSearchForm from "./MoviesSearchForm";
 import MoviesList from 'shared/components/MoviesList';
-import Loader from 'shared/components/Loader';
+// import Loader from 'shared/components/Loader';
 
 import {getMoviesSearch} from '../../shared/service/API/themoviedb';
 
@@ -53,12 +53,11 @@ function MoviesSearch() {
             items:[],
         }))
     };
-    const { items, loading} = state;
+    const { items} = state;
 
     return (
         <>
             <MoviesSearchForm onSubmit={changeSearch} />
-            {loading && <Loader />}
             <MoviesList items={items} />
         </>
         
