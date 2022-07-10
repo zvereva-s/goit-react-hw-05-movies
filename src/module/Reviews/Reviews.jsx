@@ -42,7 +42,7 @@ const [state, setState] = useState({
             }
         }
         fetchMovieReview();
-    }, []);
+    }, [id]);
 
     const { items, loading, error } = state;
     const isItem = items.length > 0;
