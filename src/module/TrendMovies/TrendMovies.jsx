@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import Loader from '../../shared/components/Loader';
-import TrendingList from "shared/components/TrendingList";
+import MoviesList from "shared/components/MoviesList";
 
 import { getTrendingMovies } from '../../shared/service/API/themoviedb';
 import styles from './trendMovies.module.css';
@@ -48,7 +48,7 @@ function TrendMovies() {
             <h1 className={styles.title}>Trending today</h1>
             {loading && <Loader />}
             {error && <p>Something goes wrong...</p>}
-            <TrendingList items={items} />
+            <MoviesList items={items} />
         </>
     )
 };

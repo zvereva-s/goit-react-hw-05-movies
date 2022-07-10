@@ -1,14 +1,6 @@
 import Reviews from "module/Reviews";
-import Container from "shared/components/Container";
-
 
 function ReviewsPage() { 
-    return (
-        <>
-            <Container>
-                <Reviews />
-            </Container>
-        </>
-    )
+    return (<Reviews />)
 }
 export default ReviewsPage;

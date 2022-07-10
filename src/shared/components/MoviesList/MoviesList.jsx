@@ -1,14 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
 
-import TrendingListItem from './TrendingListItem';
-import styles from './trendingList.module.css';
+import MoviesListItem from './MoviesListItem';
+import styles from './moviesList.module.css';
 
-function TrendingList({ items }) {
+function MoviesList({ items }) {
     
     const location = useLocation();
 
     const elements = items.map(({ id, title }) => <li key={id}>
-        <Link to={`/movies/${id}`} state={{from:location}}><TrendingListItem title={title} /></Link>
+        <Link to={`/movies/${id}`} state={{from:location}}><MoviesListItem title={title} /></Link>
         
     </li>)
     
@@ -20,8 +20,8 @@ function TrendingList({ items }) {
         </>
             )
  }
-export default TrendingList;
+export default MoviesList;
 
-TrendingList.defaultProps = {
+MoviesList.defaultProps = {
     items: [],
 }
