@@ -41,7 +41,7 @@ function SingleMovie() {
             }
         }
         fetchMovieDetails();
-    }, []);
+    }, [id]);
 
     const navigate = useNavigate();
     const location = useLocation();
