@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react'; 
 
 export function useForm({ onSubmit, initialState }) {
@@ -15,7 +16,7 @@ export function useForm({ onSubmit, initialState }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit({...state});
-        // reset();
+        reset();
     };
     const reset = () => {
     setState({
@@ -23,5 +24,13 @@ export function useForm({ onSubmit, initialState }) {
       })
   }
 
-    return {state, setState, handleChange, handleSubmit,reset};
+    return {state, setState, handleChange, handleSubmit};
+}
+useForm.defaulProps = {
+    onSubmit: () => { },
+    initialState: {},
+}
+useForm.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+    initialState: PropTypes.object.isRequired,
 }

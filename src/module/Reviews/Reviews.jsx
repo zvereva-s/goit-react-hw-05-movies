@@ -1,48 +1,14 @@
-import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import ReviewsItem from './ReviewsItem';
 import Loader from 'shared/components/Loader';
-
+import { useFetchItems } from 'shared/hooks/useFetchItems';
 import { getMovieReviews } from '../../shared/service/API/themoviedb';
 import styles from './reviews.module.css';
 
 function Reviews() {
-const [state, setState] = useState({
-        items: [],
-        loading: false,
-        error: null,
-    })
     const { id } = useParams();
-
-    useEffect(() => {
-        async function fetchMovieReview() {
-            setState(prevState => ({
-                ...prevState,
-                loading: true,
-            }))
-            try {
-                const data = await getMovieReviews(id);
-                setState(prevState => ({
-                    ...prevState,
-                    items: data
-                }))
-            }
-            catch (error) {
-                setState(prevState => ({
-                    ...prevState,
-                    error
-                }))
-            }
-            finally {
-                setState(prevState => ({
-                    ...prevState,
-                    loading: false,
-                }))
-            }
-        }
-        fetchMovieReview();
-    }, [id, setState]);
+    const { state } = useFetchItems({ getFetch: getMovieReviews, array: [id], params: id });
 
     const { items, loading, error } = state;
     const isItem = items.length > 0;

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './container.module.css';
 
 function Container({ children }) {
@@ -8,3 +9,7 @@ function Container({ children }) {
     )
 }
 export default Container;
+
+Container.propTypes = {
+    children: PropTypes.node,
+}

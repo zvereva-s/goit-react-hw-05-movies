@@ -1,9 +1,11 @@
-import { Link, Outlet} from "react-router-dom";
+import { memo } from 'react';
+import PropTypes from 'prop-types';
+import { Link, Outlet } from "react-router-dom";
 
 import styles from './singleMovieItem.module.css';
 
 function SingleMovieItem({ item }) {
-    const { id, title, overview, genres, vote_average, poster_path, release_date } = item;
+    const { title, overview, genres, vote_average, poster_path, release_date } = item;
     const genresString = genres.map(el => el.name).join(', ');
     const userScore = vote_average * 10;
     const year = release_date.slice(0, 4);
@@ -43,4 +45,20 @@ function SingleMovieItem({ item }) {
             </div>
     )
  }
-export default SingleMovieItem;
+export default memo(SingleMovieItem);
+
+SingleMovieItem.defaultProps = {
+    item:{},
+}
+SingleMovieItem.propTypes = {
+    item: PropTypes.objectOf(
+        PropTypes.shape({
+            title: PropTypes.string,
+            overview: PropTypes.string,
+            genres: PropTypes.array,
+            vote_average: PropTypes.string,
+            poster_path: PropTypes.string,
+            release_date: PropTypes.string,
+        })
+    )
+}

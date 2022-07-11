@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useForm } from '../../../shared/hooks/useForm';
 import { initialState } from './initialState';
 
@@ -17,7 +18,6 @@ function MoviesSearchForm({onSubmit}) {
             value={search}
             onChange={handleChange}
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
           />
         <button className={styles.button} type="submit">
@@ -30,3 +30,10 @@ function MoviesSearchForm({onSubmit}) {
 
  };
 export default MoviesSearchForm;
+
+MoviesSearchForm.defaultProps = {
+  onSubmit:()=>{}
+}
+MoviesSearchForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+}

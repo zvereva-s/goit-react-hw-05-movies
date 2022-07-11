@@ -1,21 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 
 import SingleMovieItem from './SingleMovieItem';
-
 import { getMovieDetails } from 'shared/service/API/themoviedb';
 import styles from './singleMovie.module.css';
 import Loader from 'shared/components/Loader';
 
 function SingleMovie() {
+    const { id } = useParams();
     const [state, setState] = useState({
         item: [],
         loading: false,
         error: null,
     });
-    const { id } = useParams();
-    const navigate = useNavigate();
-    const location = useLocation();
 
     useEffect(() => {
         async function fetchMovieDetails() {
@@ -46,12 +43,15 @@ function SingleMovie() {
         fetchMovieDetails();
     }, []);
 
+    const navigate = useNavigate();
+    const location = useLocation();
     const from = location.state?.from || "/";
-
     const goBack = () => navigate(from);
+
     const { item, loading, error } = state;
     const isItem = Object.keys(item).length > 0;
 
+    console.log(item);
     return (
         <div className={styles.wrapper}>
             {loading && <Loader />}
@@ -63,3 +63,6 @@ function SingleMovie() {
 }
 
 export default SingleMovie;
+
+
+   

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './reviewsItem.module.css';
 
 function ReviewsItem({ items }) {
@@ -8,3 +9,16 @@ function ReviewsItem({ items }) {
         </ul>)
 }
 export default ReviewsItem;
+
+ReviewsItem.defaultProps = {
+    items: [],
+}
+ReviewsItem.propTypes = {
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            author: PropTypes.string,
+            content: PropTypes.string,
+        })
+    )
+}

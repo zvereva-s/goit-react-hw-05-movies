@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import defaulImg from '../../../images/user.png';
 import styles from './castItem.module.css';
 
@@ -22,5 +23,15 @@ function CastItem({ items }) {
 export default CastItem;
 
 CastItem.defaulProps = {
-    
+    items: [],
+}
+CastItem.propTypes = {
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            name: PropTypes.string,
+            character: PropTypes.string,
+            profile_path: PropTypes.string,
+        })
+    )
 }
