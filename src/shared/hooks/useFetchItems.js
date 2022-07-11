@@ -42,7 +42,8 @@ export function useFetchItems({ getFetch, array = [], params, firstRender = {} }
         firstRender.current = false;
         }
 
-    }, [...array, params, firstRender]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [...array]);
     return { state, setState };
 };
 
