@@ -42,7 +42,7 @@ export function useFetchItems({ getFetch, array = [], params, firstRender = {} }
         firstRender.current = false;
         }
 
-    }, [...array, params, firstRender]);
+    }, [...array]);
     return { state, setState };
 };
 
